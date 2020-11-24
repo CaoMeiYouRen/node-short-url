@@ -5,13 +5,14 @@ services:
         image: caomeiyouren/node-short-url
         restart: always
         ports:
-            - "5000:5000"
+            - "6000:6000"
         environment:
-            PORT: 5000
+            PORT: 6000
             NODE_ENV: production
             REDIS_URL: "redis://redis:6379/"
             REDIS_HOST: "redis"
             REDIS_PORT: 6379
+            BASE_URL: "http://localhost:6000"
         depends_on:
             - redis
     redis:
