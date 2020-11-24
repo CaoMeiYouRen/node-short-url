@@ -23,7 +23,7 @@ module.exports = {
         [
             '@semantic-release/exec',
             {
-                prepareCmd: 'npm run docs:build && docker build -t caomeiyouren/node-short-url .',
+                prepareCmd: 'docker build -t caomeiyouren/node-short-url .',
             },
         ],
         [
