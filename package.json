@@ -42,7 +42,11 @@
     "@typescript-eslint/eslint-plugin": "^4.7.0",
     "@typescript-eslint/parser": "^4.7.0",
     "colors": "^1.4.0",
+    "commitizen": "^4.2.2",
+    "conventional-changelog-cli": "^2.1.1",
+    "conventional-changelog-cmyr-config": "^1.2.3",
     "cross-env": "^7.0.2",
+    "cz-conventional-changelog": "^3.3.0",
     "debug": "^4.2.0",
     "eslint": "^7.13.0",
     "eslint-config-cmyr": "^1.0.2",
@@ -76,5 +80,13 @@
     "lodash": "^4.17.15",
     "module-alias": "^2.2.2",
     "morgan": "^1.10.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "changelog": {
+    "language": "zh"
   }
 }
