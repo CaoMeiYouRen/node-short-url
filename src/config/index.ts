@@ -1,6 +1,6 @@
-import dotenv = require('dotenv')
-import path = require('path')
-import fs = require('fs-extra')
+import dotenv from 'dotenv'
+import path from 'path'
+import fs from 'fs-extra'
 const modes = [
     '.env.local',
     '.env',

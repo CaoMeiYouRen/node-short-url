@@ -1,16 +1,22 @@
 os: linux
 language: node_js
 node_js:
-    - 10
-    - 12
-    - 14
-    - node
+    - 12.18.4
+services:
+    - docker
 install:
     - yarn
 script:
     - npm run lint
     - npm run test
     - npm run build
+deploy:
+    provider: script
+    skip_cleanup: true
+    on:
+        branch: master
+    script:
+        - npm run release
 cache:
     directories:
         - node_modules

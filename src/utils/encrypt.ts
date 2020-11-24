@@ -1,4 +1,4 @@
-import crypto = require('crypto')// 导入加密
+import crypto from 'crypto' // 导入加密
 /**
  * 生成md5加密字符串
  * @param {string} str
