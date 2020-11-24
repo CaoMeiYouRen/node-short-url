@@ -7,7 +7,7 @@ import router from './routes'
 import { ROOT_URL } from './config'
 import './db'
 import './services'
-import { catchError, logger, handleTimeout, limiter } from './middleware'
+import { catchError, logger, handleTimeout, limiter, debugLogger } from './middleware'
 export class Server {
     /**
      * expressd的app对象
@@ -29,6 +29,7 @@ export class Server {
      * @memberof Server
      */
     private config(): void {
+        this.app.use(debugLogger)
         this.app.use(logger)
         this.app.use(compression())
         this.app.use(handleTimeout)

@@ -10,7 +10,7 @@ export async function handleTimeout(req: Request, res: Response, next: NextFunct
         if (!res.headersSent) { // 若请求还未结束，则回复超时
             res.status(statusCode).json({
                 statusCode,
-                message: '请求响应超时'
+                message: '请求响应超时',
             })
         }
     })

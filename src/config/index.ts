@@ -27,6 +27,8 @@ export const PORT = Number(env.PORT || 5000)
 
 export const ROOT_URL = env.ROOT_URL || '/'
 
+export const BASE_URL = (env.BASE_URL || 'http://localhost:5000') + ROOT_URL
+
 export const TIMEOUT = Number(env.TIMEOUT || 5000)
 
 /**

@@ -23,7 +23,7 @@ export function catchError(err: any, req: Request, res: Response, next: NextFunc
     if (!res.headersSent) { // 若请求还未结束，则回复错误
         res.status(statusCode).json(new ResponseDto({
             statusCode,
-            message
+            message,
         }))
     }
 }
