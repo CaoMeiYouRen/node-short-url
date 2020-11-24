@@ -39,7 +39,7 @@ router.get('/shortUrl', async (req, res, next) => {
             shortUrl,
         },
     }))
-    return
+    
 })
 
 router.get('/longUrl', async (req, res, next) => {
@@ -58,7 +58,7 @@ router.get('/longUrl', async (req, res, next) => {
             longUrl,
         },
     }))
-    return
+    
 })
 
 router.get('/:short', async (req, res, next) => {
