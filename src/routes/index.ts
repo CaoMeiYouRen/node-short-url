@@ -9,11 +9,15 @@ const router = express.Router()
 
 router.get('/shortUrl', async (req, res, next) => {
     const url = req.query.url as string
+    const len = Number(req.query.len || 6)
     if (!url) {
         throw new HttpError(400, '未提交 url 参数')
     }
     if (!isURL(url)) {
         throw new HttpError(400, '提交的 url 参数不是有效的URL')
+    }
+    if (len < 4 || len > 8) {
+        throw new HttpError(400, '提交的 len 参数不在合法区间[4,8]之间')
     }
     const hash = md5(url)
     let shortUrl = await redis.get(hash)
@@ -26,7 +30,7 @@ router.get('/shortUrl', async (req, res, next) => {
         }))
         return
     }
-    const short = getRandomCode(8)
+    const short = getRandomCode(len)
     if (await redis.get(short)) {
         throw new HttpError(400, '生成的短链重复，请重试')
     }
@@ -39,13 +43,16 @@ router.get('/shortUrl', async (req, res, next) => {
             shortUrl,
         },
     }))
-    
+
 })
 
 router.get('/longUrl', async (req, res, next) => {
     const url = req.query.url as string
     if (!url) {
         throw new HttpError(400, '未提交 url 参数')
+    }
+    if (!isURL(url)) {
+        throw new HttpError(400, '提交的 url 参数不是有效的URL')
     }
     const short = url.slice(BASE_URL.length)
     const longUrl = await redis.get(short)
@@ -58,7 +65,7 @@ router.get('/longUrl', async (req, res, next) => {
             longUrl,
         },
     }))
-    
+
 })
 
 router.get('/:short', async (req, res, next) => {
