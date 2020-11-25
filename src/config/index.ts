@@ -48,5 +48,5 @@ export const REDIS_CONFIG = {
     REDIS_PORT,
     REDIS_HOST,
     REDIS_PASSWORD: env.REDIS_PASSWORD || '',
-    REDIS_KEY_PREFIX: env.REDIS_KEY_PREFIX || 'my-redis',
+    REDIS_KEY_PREFIX: env.REDIS_KEY_PREFIX || '',
 }

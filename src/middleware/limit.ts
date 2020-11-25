@@ -1,11 +1,13 @@
 import { LIMIT } from '@/config'
+import { redis } from '@/db'
 import { HttpStatusCode } from '@/models/HttpStatusCode'
 import RateLimit from 'express-rate-limit'
+import RedisStore from 'rate-limit-redis'
 
 const statusCode = HttpStatusCode.TOO_MANY_REQUESTS // 429
 
 export const limiter = RateLimit({
-    // store: new RedisStore({ client: redis, windowMs: 1 }),
+    store: new RedisStore({ client: redis }),
     statusCode,
     windowMs: LIMIT.LIMIT_INTERVAL * 1000, // 每秒钟不大于10次
     max: LIMIT.LIMIT_MAX, // 最大次数
