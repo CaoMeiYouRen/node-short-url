@@ -9,7 +9,12 @@ const router = express.Router()
 
 router.get('/shortUrl', async (req, res, next) => {
     const url = req.query.url as string
+    const _expiryTime = req.query.expiryTime as string
+    const defaultTime = Date.now() + 30 * 24 * 3600 * 1000
+    const maxTime = Date.now() + 365 * 24 * 3600 * 1000 // 最长有效期一年
+    const expiryTime = Math.min(new Date(_expiryTime || defaultTime).getTime(), maxTime)
     const len = Number(req.query.len || 6)
+
     if (!url) {
         throw new HttpError(400, '未提交 url 参数')
     }
@@ -35,8 +40,8 @@ router.get('/shortUrl', async (req, res, next) => {
         throw new HttpError(400, '生成的短链重复，请重试')
     }
     shortUrl = BASE_URL + short
-    await redis.set(short, url) // 根据短链找长链
-    await redis.set(hash, shortUrl) // 根据长链 hash 找短链
+    await redis.set(short, url, 'PX', expiryTime) // 根据短链找长链
+    await redis.set(hash, shortUrl, 'PX', expiryTime) // 根据长链 hash 找短链
     res.json(new ResponseDto({
         statusCode: 200,
         data: {
