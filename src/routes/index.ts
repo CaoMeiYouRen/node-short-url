@@ -2,7 +2,7 @@ import express from 'express'
 import { HttpError } from '@/models/HttpError'
 import { printTime, sleep, getRandomCode, md5, isURL } from '@/utils'
 import { redis } from '@/db'
-import { BASE_URL } from '@/config'
+import { BASE_URL, DEFAULT_EXPIRY_TIME, MAX_TIME_EXPIRY_TIME } from '@/config'
 import { ResponseDto } from '@/models/ResponseDto'
 
 const router = express.Router()
@@ -10,8 +10,8 @@ const router = express.Router()
 router.get('/shortUrl', async (req, res, next) => {
     const url = req.query.url as string
     const _expiryTime = req.query.expiryTime as string
-    const defaultTime = Date.now() + 30 * 24 * 3600 * 1000
-    const maxTime = Date.now() + 365 * 24 * 3600 * 1000 // 最长有效期一年
+    const defaultTime = Date.now() + DEFAULT_EXPIRY_TIME * 24 * 3600 * 1000
+    const maxTime = Date.now() + MAX_TIME_EXPIRY_TIME * 24 * 3600 * 1000 // 最长有效期一年
     const expiryTime = Math.min(new Date(_expiryTime || defaultTime).getTime(), maxTime)
     const len = Number(req.query.len || 6)
 
