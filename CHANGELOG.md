@@ -1,5 +1,17 @@
 # node-short-url
 
+# [1.2.0](https://github.com/CaoMeiYouRen/node-short-url/compare/v1.1.0...v1.2.0) (2020-12-08)
+
+
+### ✨ 新功能
+
+* 短链添加有效期 ([88416d9](https://github.com/CaoMeiYouRen/node-short-url/commit/88416d9))
+
+
+### 🐛 Bug 修复
+
+* 新增 有效期环境变量 ([b510fee](https://github.com/CaoMeiYouRen/node-short-url/commit/b510fee)), closes [#4](https://github.com/CaoMeiYouRen/node-short-url/issues/4)
+
 # [1.1.0](https://github.com/CaoMeiYouRen/node-short-url/compare/v1.0.0...v1.1.0) (2020-11-25)
 
 
