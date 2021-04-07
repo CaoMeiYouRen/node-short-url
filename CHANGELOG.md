@@ -1,5 +1,12 @@
 # node-short-url
 
+## [1.2.1](https://github.com/CaoMeiYouRen/node-short-url/compare/v1.2.0...v1.2.1) (2021-04-07)
+
+
+### 🐛 Bug 修复
+
+* 修复 生成短链重试次数 ([3dba352](https://github.com/CaoMeiYouRen/node-short-url/commit/3dba352))
+
 # [1.2.0](https://github.com/CaoMeiYouRen/node-short-url/compare/v1.1.0...v1.2.0) (2020-12-08)
 
 
