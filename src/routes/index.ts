@@ -35,8 +35,17 @@ router.get('/shortUrl', async (req, res, next) => {
         }))
         return
     }
-    const short = getRandomCode(len)
-    if (await redis.get(short)) {
+    const MAX_COUNT = 3// 最大次数
+    let count = MAX_COUNT
+    let short: string
+    do {
+        short = getRandomCode(len)
+        if (!await redis.get(short)) {
+            break
+        }
+        count--
+    } while (count > 0)
+    if (count <= 0) {
         throw new HttpError(400, '生成的短链重复，请重试')
     }
     shortUrl = BASE_URL + short

@@ -27,5 +27,6 @@ module.exports = {
     parser: '@typescript-eslint/parser',
     rules: {
         'no-console': 0,
+        'eol-last': [1, 'never'], // 禁止文件末尾存在空行
     },
 }

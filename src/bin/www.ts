@@ -52,7 +52,7 @@ function onError(error: any): void {
 function onListening(): void {
     printTime(`运行端口为  http://127.0.0.1:${httpPort}`)
 }
-process.on('uncaughtException', err => {
+process.on('uncaughtException', (err) => {
     console.error(err)
 })
 process.on('unhandledRejection', (reason: any, p) => {
