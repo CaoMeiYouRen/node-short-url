@@ -34,7 +34,7 @@
     "@types/fs-extra": "^9.0.4",
     "@types/http-proxy": "^1.17.4",
     "@types/ioredis": "^4.17.8",
-    "@types/mocha": "^8.0.4",
+    "@types/mocha": "^9.0.0",
     "@types/module-alias": "^2.0.0",
     "@types/morgan": "^1.9.2",
     "@types/node": "^16.0.0",
