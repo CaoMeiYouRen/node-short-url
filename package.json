@@ -23,7 +23,7 @@
     "test:e2e": "mocha -r ts-node/register test/register.ts test/**/*.test.ts -R nyan -t 10000"
   },
   "devDependencies": {
-    "@semantic-release/changelog": "^5.0.1",
+    "@semantic-release/changelog": "^6.0.0",
     "@semantic-release/exec": "^5.0.0",
     "@semantic-release/git": "^10.0.0",
     "@types/compression": "^1.7.0",
