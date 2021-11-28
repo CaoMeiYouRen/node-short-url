@@ -1,6 +1,4 @@
 import dotenv from 'dotenv'
-import path from 'path'
-import fs from 'fs-extra'
 const modes = [
     '.env.local',
     '.env',
@@ -31,8 +29,8 @@ export const BASE_URL = (env.BASE_URL || 'http://localhost:5000') + ROOT_URL
 
 export const TIMEOUT = Number(env.TIMEOUT || 5000)
 
-export const DEFAULT_EXPIRY_TIME = Number(env.DEFAULT_EXPIRY_TIME || 30)
-export const MAX_TIME_EXPIRY_TIME = Number(env.MAX_TIME_EXPIRY_TIME || 365)
+export const DEFAULT_EXPIRY_TIME = Number(env.DEFAULT_EXPIRY_TIME || 365)
+export const MAX_TIME_EXPIRY_TIME = Number(env.MAX_TIME_EXPIRY_TIME || 3650)
 
 /**
  * 限流配置

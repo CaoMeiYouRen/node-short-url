@@ -1,4 +1,4 @@
-import express, { Request, Response, NextFunction } from 'express'
+import { Request, Response, NextFunction } from 'express'
 import { HttpStatusCode } from '@/models/HttpStatusCode'
 import { TIMEOUT } from '@/config'
 export async function handleTimeout(req: Request, res: Response, next: NextFunction) {

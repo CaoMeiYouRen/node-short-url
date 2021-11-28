@@ -2,7 +2,7 @@ import { LIMIT } from '@/config'
 import { redis } from '@/db'
 import { HttpStatusCode } from '@/models/HttpStatusCode'
 import RateLimit from 'express-rate-limit'
-import RedisStore from 'rate-limit-redis'
+import RedisStore = require('rate-limit-redis')
 
 const statusCode = HttpStatusCode.TOO_MANY_REQUESTS // 429
 

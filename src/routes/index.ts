@@ -11,7 +11,7 @@ router.get('/shortUrl', async (req, res, next) => {
     const url = req.query.url as string
     const _expiryTime = req.query.expiryTime as string
     const defaultTime = Date.now() + DEFAULT_EXPIRY_TIME * 24 * 3600 * 1000
-    const maxTime = Date.now() + MAX_TIME_EXPIRY_TIME * 24 * 3600 * 1000 // 最长有效期一年
+    const maxTime = Date.now() + MAX_TIME_EXPIRY_TIME * 24 * 3600 * 1000 // 最长有效期
     const expiryTime = Math.min(new Date(_expiryTime || defaultTime).getTime(), maxTime)
     const len = Number(req.query.len || 6)
 

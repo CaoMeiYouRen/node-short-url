@@ -1,7 +1,6 @@
 import debug from 'debug'
 import http from 'http'
 import path from 'path'
-import colors from 'colors'
 import moduleAlias from 'module-alias'
 moduleAlias.addAlias('@', path.join(__dirname, '../'))
 import { Server } from '../app'
