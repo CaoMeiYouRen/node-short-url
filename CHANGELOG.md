@@ -1,5 +1,12 @@
 # node-short-url
 
+## [1.2.2](https://github.com/CaoMeiYouRen/node-short-url/compare/v1.2.1...v1.2.2) (2021-11-28)
+
+
+### 🐛 Bug 修复
+
+* 尝试迁移到 rollup ，但没有优势，故不做迁移 ([b7e0d5f](https://github.com/CaoMeiYouRen/node-short-url/commit/b7e0d5f))
+
 ## [1.2.1](https://github.com/CaoMeiYouRen/node-short-url/compare/v1.2.0...v1.2.1) (2021-04-07)
 
 
